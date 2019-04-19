@@ -51,7 +51,7 @@
                 <h3 class="box-title">
                   <a href="{{ route('profile.edit') }}" class="fcbtn btn btn-primary btn-outline btn-1c btn-sm pull-right">Edit Profile</a>
                 </h3>
-                <img src="{{ url(env('FILE_UPLOAD_DIR').'/'.Auth::user()->picture) }}" alt="" class="m-t-10" width="100%">
+                <img src="{{ url(App\Models\User::FILE_UPLOAD_DIR.'/'.Auth::user()->picture) }}" alt="" class="m-t-10" width="100%">
 
                 <!--<button class="btn btn-block btn-danger btn-rounded">Change Profile</button>-->
               </div>

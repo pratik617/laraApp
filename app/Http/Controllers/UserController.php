@@ -38,7 +38,7 @@ class UserController extends Controller
 
   		return Datatables::of($users)
         ->addColumn('picture', function($user) {
-          $url = url(env('FILE_UPLOAD_DIR').'/'.$user->picture);
+          $url = url(User::FILE_UPLOAD_DIR.'/'.$user->picture);
           return '<img src="'.$url.'" width=50 height=30 />';
         })
   			->addColumn('action', function ($user) {
@@ -187,14 +187,14 @@ class UserController extends Controller
         }
 
         if ($request->hasFile('picture')) {
-            $old_file_path = env('FILE_UPLOAD_DIR').'/'.$user->picture;
+            $old_file_path = User::FILE_UPLOAD_DIR.'/'.$user->picture;
             if (file_exists($old_file_path)) {
               unlink($old_file_path);
             }
 
             $picture = $request->file('picture');
             $picture_name = time().'.'.$picture->getClientOriginalExtension();
-            $destinationPath = public_path(env('FILE_UPLOAD_DIR'));
+            $destinationPath = public_path(User::FILE_UPLOAD_DIR);
             $picture->move($destinationPath, $picture_name);
 
             $user->picture = $picture_name;
@@ -221,7 +221,7 @@ class UserController extends Controller
     {
       try {
         $user = User::findOrFail($id);
-        $file_path = env('FILE_UPLOAD_DIR').'/'.$user->picture;
+        $file_path = User::FILE_UPLOAD_DIR.'/'.$user->picture;
         if (file_exists($file_path)) {
           unlink($file_path);
         }

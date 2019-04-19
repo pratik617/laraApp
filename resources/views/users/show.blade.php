@@ -70,7 +70,7 @@
                 <h3 class="box-title">
                   <a href="{{ route('users.index') }}" class="fcbtn btn btn-primary btn-outline btn-1c btn-sm pull-right">Go Back</a>
                 </h3>
-                <img src="{{ url(env('FILE_UPLOAD_DIR').'/'.$user->picture) }}" alt="" class="m-t-10" width="100%">
+                <img src="{{ url(App\Models\User::FILE_UPLOAD_DIR.'/'.$user->picture) }}" alt="" class="m-t-10" width="100%">
               </div>
             </div>
           </div>
