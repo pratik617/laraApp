@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Auth;
 
 class ProfileController extends Controller
 {
@@ -100,5 +101,34 @@ class ProfileController extends Controller
       return redirect()->route('profile.index')->with('success', 'Profile updated!');
     }
 
+    public function updateProfilePic(Request $request) {
+      try {
+
+        if ($request->hasFile('picture')) {
+          $user = User::findOrFail(Auth::user()->id);
+          $old_file_path = User::FILE_UPLOAD_DIR.'/'.$user->picture;
+          if (file_exists($old_file_path)) {
+            unlink($old_file_path);
+          }
+
+          $picture = $request->file('picture');
+          $picture_name = time().'.'.$picture->getClientOriginalExtension();
+          $destinationPath = public_path(User::FILE_UPLOAD_DIR);
+          $picture->move($destinationPath, $picture_name);
+          $user->picture = $picture_name;
+          if (!$user->save()) {
+            return redirect()->route('profile')->with('error', 'Something went wrong!');
+          }
+        }
+      } catch (Exception $e) {
+        return response()->json([
+         'status'   => 'error',
+        ]);
+      }
+
+      return response()->json([
+       'status'   => 'success',
+      ]);
+    }
 
 }

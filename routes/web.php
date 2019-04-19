@@ -27,6 +27,7 @@ Route::resource('users', 'UserController');
 Route::get('profile', 'ProfileController@index')->name('profile.index');
 Route::get('profile/edit', 'ProfileController@edit')->name('profile.edit');
 Route::patch('profile/{id}', 'ProfileController@update')->name('profile.update');
+Route::post('profile/update/profile-picture', 'ProfileController@updateProfilePic')->name('profile.profile-pic.update');
 // END profile routes
 
 Route::get('403', function() {

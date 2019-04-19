@@ -19,7 +19,7 @@
         <ul class="nav navbar-top-links navbar-right pull-right">
             <li class="dropdown">
                 <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#">
-                  <img src="{{ asset(App\Models\User::FILE_UPLOAD_DIR.'/'.Auth::user()->picture) }}" alt="{{ Auth::user()->full_name }}" width="36" class="img-circle">
+                  <img src="{{ asset(App\Models\User::FILE_UPLOAD_DIR.'/'.Auth::user()->picture) }}" alt="{{ Auth::user()->full_name }}" width="36" height="36" class="img-circle">
                   <b class="hidden-xs">{{ Auth::user()->full_name }}</b><span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu dropdown-user animated flipInY">

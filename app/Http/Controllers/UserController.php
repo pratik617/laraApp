@@ -202,7 +202,6 @@ class UserController extends Controller
         }
 
         if (!$user->save()) {
-
           return redirect()->route('users.edit', $id)->with('error', 'Something went wrong!');
         }
       } catch (Exception $e) {
