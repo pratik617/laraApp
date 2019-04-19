@@ -21,13 +21,14 @@ Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 Route::get('users/getData', 'UserController@getData')->name('users.data');
 Route::get('users/confirmation/{token}', 'Auth\RegisterController@confirmation')->name('confirmation');
 Route::resource('users', 'UserController');
+// END users routes
 
+// START profile routes
 Route::get('profile', 'ProfileController@index')->name('profile.index');
 Route::get('profile/edit', 'ProfileController@edit')->name('profile.edit');
 Route::patch('profile/{id}', 'ProfileController@update')->name('profile.update');
+// END profile routes
 
-// END users routes
-/*
 Route::get('403', function() {
   return "403 error.";
 })->name('403');
@@ -43,4 +44,3 @@ Route::get('500', function() {
 Route::get('503', function() {
   return "503 error.";
 })->name('503');
-*/
