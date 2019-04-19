@@ -18,7 +18,7 @@
 <div class="row">
     <div class="col-lg-12">
         <div class="white-box">
-          <!-- START project details -->
+          <!-- START user details -->
           <div class="">
             <div class="row">
               <div class="col-lg-8 col-md-8 col-sm-8">
@@ -57,7 +57,7 @@
               </div>
             </div>
           </div>
-          <!-- END project details -->
+          <!-- END user details -->
         </div>
     </div>
 </div>

@@ -16,7 +16,33 @@
 <div class="row">
     <div class="col-md-12">
         <div class="white-box">
-            <h3 class="box-title">The great content goes here</h3> </div>
+
+            <div class="">
+              <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <h3 class="box-title">User Data</h3>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td width="390">Total Users</td>
+                                    <td> {{ $total_users }} </td>
+                                </tr>
+                                <tr>
+                                    <td width="390">Active Users</td>
+                                    <td> {{ $active_users }} </td>
+                                </tr>
+                                <tr>
+                                    <td width="390">InActive Users</td>
+                                    <td> {{ $inactive_users }} </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </div>
     </div>
 </div>
 @endsection

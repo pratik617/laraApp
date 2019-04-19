@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
+use Carbon\Carbon;
 
 class DashboardController extends Controller
 {
@@ -23,6 +25,10 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('dashboard');
+        $total_users = User::count();
+        $active_users = User::where('confirmed', 1)->count();
+        $inactive_users = User::where('confirmed', 0)->count();
+
+        return view('dashboard', compact('total_users', 'active_users', 'inactive_users'));
     }
 }

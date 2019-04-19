@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 use App\Models\User;
 use Carbon\Carbon;
+use Auth;
 
 class UserController extends Controller
 {
@@ -34,7 +35,7 @@ class UserController extends Controller
     }
 
     public function getData() {
-      $users = User::latest()->get();
+      $users = User::latest()->where('id', '!=', Auth::user()->id)->get();
 
   		return Datatables::of($users)
         ->addColumn('picture', function($user) {
